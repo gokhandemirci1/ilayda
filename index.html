@@ -78,11 +78,17 @@
                         <span class="suggestion-text">Her zamanki mekanda bira içelim 🍺</span>
                     </label>
                     
-                    <label class="suggestion-item">
-                        <input type="checkbox" class="suggestion-checkbox" value="onerecegim">
-                        <span class="checkmark"></span>
-                        <span class="suggestion-text">Ben önereceğim 💫</span>
-                    </label>
+                </div>
+                
+                <!-- Ben önereceğim - Metin kutusu -->
+                <div class="custom-suggestion-box">
+                    <label class="custom-suggestion-label">Ben önereceğim 💫</label>
+                    <textarea 
+                        id="custom-suggestion-input" 
+                        class="custom-suggestion-input" 
+                        placeholder="Ne yapmak istersin? Buraya yazabilirsin..."
+                        rows="3"
+                    ></textarea>
                 </div>
                 
                 <button class="btn-primary" id="suggestions-btn" onclick="continueToDate()" disabled>Devam Et</button>

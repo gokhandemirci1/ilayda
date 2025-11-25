@@ -54,14 +54,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Buluşma önerileri checkbox'ları
     const checkboxes = document.querySelectorAll('.suggestion-checkbox');
     const suggestionsBtn = document.getElementById('suggestions-btn');
+    const customInput = document.getElementById('custom-suggestion-input');
+    
+    function updateSuggestionsButton() {
+        // En az bir checkbox seçildiyse veya custom input doluysa butonu aktif et
+        const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+        const hasCustomText = customInput && customInput.value.trim().length > 0;
+        suggestionsBtn.disabled = !(anyChecked || hasCustomText);
+    }
     
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
-            // En az bir seçim yapıldıysa butonu aktif et
-            const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
-            suggestionsBtn.disabled = !anyChecked;
+            updateSuggestionsButton();
         });
     });
+    
+    // Custom input için event listener
+    if (customInput) {
+        customInput.addEventListener('input', function() {
+            updateSuggestionsButton();
+        });
+    }
     
     // Tarih seçici ayarları
     const today = new Date();
@@ -118,6 +131,15 @@ function continueToDate() {
                 text: text
             };
         });
+    
+    // Custom öneri varsa ekle
+    const customInput = document.getElementById('custom-suggestion-input');
+    if (customInput && customInput.value.trim().length > 0) {
+        selectedSuggestions.push({
+            value: 'custom',
+            text: customInput.value.trim()
+        });
+    }
     
     formData.meetingSuggestions = selectedSuggestions;
     
