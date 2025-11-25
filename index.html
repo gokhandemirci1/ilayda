@@ -3,54 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özel Bir Davet 🌸</title>
+    <title>Özel Bir Davet 🌹</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <!-- İlk Ekran - Gül Tamamlama -->
         <div class="screen active" id="rose-screen">
-            <h1 class="title">Merhaba İlayda Hanım, bu site sizin için tasarlanmıştır 🌸</h1>
-            <p class="subtitle">Papatyayı tamamlamak için yapraklara tıkla... Papatyayı tamamladığında önemli bir sayfa seni bekliyor</p>
+            <h1 class="title">Merhaba İlayda Hanım, bu site sizin için tasarlanmıştır 🌹</h1>
+            <p class="subtitle">Gülü tamamlamak için yapraklara tıkla... Gülü tamamladığında önemli bir sayfa seni bekliyor</p>
             
-            <div class="daisy-game-container">
-                <div class="daisy-center">
-                    <div class="daisy-petals-wrapper">
-                        <!-- Dış yapraklar (10 adet) -->
-                        <div class="petal petal-outer" data-petal="1" data-angle="0" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="2" data-angle="36" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="3" data-angle="72" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="4" data-angle="108" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="5" data-angle="144" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="6" data-angle="180" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="7" data-angle="216" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="8" data-angle="252" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="9" data-angle="288" style="--distance: 70px;"></div>
-                        <div class="petal petal-outer" data-petal="10" data-angle="324" style="--distance: 70px;"></div>
+            <div class="rose-game-container">
+                <div class="rose-center">
+                    <div class="rose-petals-wrapper">
+                        <!-- Dış yapraklar (4 adet) -->
+                        <div class="petal petal-outer" data-petal="1" data-angle="0" style="--distance: 80px;"></div>
+                        <div class="petal petal-outer" data-petal="2" data-angle="90" style="--distance: 80px;"></div>
+                        <div class="petal petal-outer" data-petal="3" data-angle="180" style="--distance: 80px;"></div>
+                        <div class="petal petal-outer" data-petal="4" data-angle="270" style="--distance: 80px;"></div>
                         
                         <!-- Merkez -->
-                        <div class="petal petal-inner" data-petal="11" data-angle="0" style="--distance: 0px;"></div>
+                        <div class="petal petal-inner" data-petal="5" data-angle="0" style="--distance: 0px;"></div>
                     </div>
                     
-                    <!-- Papatya merkezi -->
-                    <div class="daisy-core" id="daisy-core"></div>
+                    <!-- Gül merkezi -->
+                    <div class="rose-core" id="rose-core"></div>
                 </div>
                 
-                <!-- Papatya sapı -->
-                <div class="daisy-stem" id="daisy-stem"></div>
-                <div class="daisy-leaf leaf-left" id="leaf-left"></div>
-                <div class="daisy-leaf leaf-right" id="leaf-right"></div>
+                <!-- Gül sapı -->
+                <div class="rose-stem" id="rose-stem"></div>
+                <div class="rose-leaf leaf-left" id="leaf-left"></div>
+                <div class="rose-leaf leaf-right" id="leaf-right"></div>
                 
-                <div class="progress-text" id="progress-text">0 / 10 yaprak</div>
-                <div class="click-hint">Yapraklara tıklayarak papatyayı tamamla!</div>
+                <div class="progress-text" id="progress-text">0 / 4 yaprak</div>
+                <div class="click-hint">Yapraklara tıklayarak gülü tamamla!</div>
             </div>
         </div>
 
         <!-- İkinci Ekran - Randevu Sorusu -->
         <div class="screen" id="appointment-question-screen">
             <div class="message-box">
-                <div class="completed-daisy">🌸</div>
-                <h2>Harika! Papatya tamamlandı! ✨</h2>
+                <div class="completed-rose">🌹</div>
+                <h2>Harika! Gül tamamlandı! ✨</h2>
                 <p class="question-text">Size bir buluşma davet ediyorum. Bu buluşmanın içeriğini bir sonraki sayfada belirleyebileceksiniz ama önce aşağıdan onaylamanız gerekecek. Not: Hayır butonu çalışmıyor 😊</p>
             </div>
             <div class="button-group">
