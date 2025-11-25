@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özel Bir Davet 🌹</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- İlk Ekran - Gül Tamamlama -->
+        <div class="screen active" id="rose-screen">
+            <h1 class="title">Merhaba İlayda Hanım, bu site sizin için tasarlanmıştır 🌹</h1>
+            <p class="subtitle">Gülü tamamlamak için yapraklara tıkla... Gülü tamamladığında önemli bir sayfa seni bekliyor</p>
+            
+            <div class="rose-game-container">
+                <div class="rose-center">
+                    <div class="rose-petals-wrapper">
+                        <!-- Dış yapraklar -->
+                        <div class="petal petal-outer" data-petal="1" data-angle="0" style="--distance: 80px;"></div>
+                        <div class="petal petal-outer" data-petal="2" data-angle="90" style="--distance: 80px;"></div>
+                        <div class="petal petal-outer" data-petal="3" data-angle="180" style="--distance: 80px;"></div>
+                        <div class="petal petal-outer" data-petal="4" data-angle="270" style="--distance: 80px;"></div>
+                        
+                        <!-- Orta yapraklar -->
+                        <div class="petal petal-middle" data-petal="5" data-angle="45" style="--distance: 50px;"></div>
+                        <div class="petal petal-middle" data-petal="6" data-angle="135" style="--distance: 50px;"></div>
+                        <div class="petal petal-middle" data-petal="7" data-angle="225" style="--distance: 50px;"></div>
+                        <div class="petal petal-middle" data-petal="8" data-angle="315" style="--distance: 50px;"></div>
+                        
+                        <!-- İç yapraklar -->
+                        <div class="petal petal-inner" data-petal="9" data-angle="22.5" style="--distance: 30px;"></div>
+                        <div class="petal petal-inner" data-petal="10" data-angle="202.5" style="--distance: 30px;"></div>
+                    </div>
+                    
+                    <!-- Gül merkezi -->
+                    <div class="rose-core" id="rose-core"></div>
+                </div>
+                
+                <!-- Gül sapı -->
+                <div class="rose-stem" id="rose-stem"></div>
+                <div class="rose-leaf leaf-left" id="leaf-left"></div>
+                <div class="rose-leaf leaf-right" id="leaf-right"></div>
+                
+                <div class="progress-text" id="progress-text">0 / 10 yaprak</div>
+                <div class="click-hint">Yapraklara tıklayarak gülü tamamla!</div>
+            </div>
+        </div>
+
+        <!-- İkinci Ekran - Randevu Sorusu -->
+        <div class="screen" id="appointment-question-screen">
+            <div class="message-box">
+                <div class="completed-rose">🌹</div>
+                <h2>Harika! Gül tamamlandı! ✨</h2>
+                <p class="question-text">Size bir buluşma davet ediyorum. Bu buluşmanın içeriğini bir sonraki sayfada belirleyebileceksiniz ama önce aşağıdan onaylamanız gerekecek. Not: Hayır butonu çalışmıyor 😊</p>
+            </div>
+            <div class="button-group">
+                <button class="btn-yes" onclick="answerYes()">Evet! Tabii ki!</button>
+                <button class="btn-no" onclick="answerNo()" onmouseover="moveNoButton()">Hayır 😢</button>
+            </div>
+        </div>
+
+        <!-- Üçüncü Ekran - Buluşma Önerileri -->
+        <div class="screen" id="meeting-suggestions-screen">
+            <div class="suggestions-box">
+                <h2>Buluşma Önerilerim</h2>
+                <p class="suggestions-hint">Birden fazla seçim yapabilirsiniz ✨</p>
+                
+                <div class="suggestions-list">
+                    <label class="suggestion-item">
+                        <input type="checkbox" class="suggestion-checkbox" value="derbi">
+                        <span class="checkmark"></span>
+                        <span class="suggestion-text">1 Aralık Fenerbahçe Galatasaray derbisini izleyelim ⚽</span>
+                    </label>
+                    
+                    <label class="suggestion-item">
+                        <input type="checkbox" class="suggestion-checkbox" value="yemek">
+                        <span class="checkmark"></span>
+                        <span class="suggestion-text">Akşam yemeği yiyelim 🍽️</span>
+                    </label>
+                    
+                    <label class="suggestion-item">
+                        <input type="checkbox" class="suggestion-checkbox" value="bira">
+                        <span class="checkmark"></span>
+                        <span class="suggestion-text">Her zamanki mekanda bira içelim 🍺</span>
+                    </label>
+                    
+                    <label class="suggestion-item">
+                        <input type="checkbox" class="suggestion-checkbox" value="onerecegim">
+                        <span class="checkmark"></span>
+                        <span class="suggestion-text">Ben önereceğim 💫</span>
+                    </label>
+                </div>
+                
+                <button class="btn-primary" id="suggestions-btn" onclick="continueToDate()" disabled>Devam Et</button>
+            </div>
+        </div>
+
+        <!-- Dördüncü Ekran - Tarih Seçimi -->
+        <div class="screen" id="date-screen">
+            <div class="date-selection-box">
+                <h2>Sınavlarının Bitme Tarihini Seç</h2>
+                <p class="date-hint">Sınavlarının bitme tarihini seçer misin? Sana rahatça yazabileyim</p>
+                <div class="date-picker-container">
+                    <input type="date" id="appointment-date" class="date-input" min="">
+                    <div class="selected-date" id="selected-date-display"></div>
+                </div>
+                <button class="btn-primary" id="confirm-btn" onclick="confirmDate()" disabled>Onayla</button>
+            </div>
+        </div>
+
+        <!-- Son Ekran - Teşekkür -->
+        <div class="screen" id="thank-you-screen">
+            <div class="celebration">
+                <div class="confetti">🎉</div>
+                <div class="confetti">✨</div>
+                <div class="confetti">✨</div>
+                <div class="confetti">🌟</div>
+            </div>
+            <h2 id="final-title">Tamam</h2>
+            <p id="final-message">Randevu tarihin kaydedildi!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
