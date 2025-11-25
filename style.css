@@ -290,6 +290,7 @@ body {
     font-size: 80px;
     animation: daisyComplete 1s ease-in-out;
     margin-bottom: 20px;
+    filter: hue-rotate(320deg) saturate(1.5) brightness(1.1);
 }
 
 @keyframes daisyComplete {
@@ -525,6 +526,11 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     line-height: 1.2;
     word-wrap: break-word;
+}
+
+.pink-emoji {
+    display: inline-block;
+    filter: hue-rotate(320deg) saturate(1.5) brightness(1.1);
 }
 
 .subtitle {
