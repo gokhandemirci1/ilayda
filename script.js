@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const x = Math.cos(angleRad) * distance;
         const y = Math.sin(angleRad) * distance;
         
-        // Kaktüs parçaları için rotation: kollar yatay (0°), baş dikey (0°)
+        // Kaktüs parçaları için rotation: kollar eğri, baş dikey
         let rotation = 0;
         if (petal.classList.contains('arm-left')) {
-            rotation = 0; // Sol kol yatay
+            rotation = -15; // Sol kol eğri (sola eğik)
         } else if (petal.classList.contains('arm-right')) {
-            rotation = 0; // Sağ kol yatay
+            rotation = 15; // Sağ kol eğri (sağa eğik)
         } else if (petal.classList.contains('cactus-head')) {
             rotation = 0; // Baş dikey
         }
