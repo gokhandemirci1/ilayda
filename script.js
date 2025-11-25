@@ -236,11 +236,13 @@ function confirmDate() {
         formData.formattedDate = formattedDate;
         formData.timestamp = new Date().toISOString();
         
-        // Verileri dosyaya kaydet
-        saveFormDataToFile();
-        
-        // Son ekrana geç
+        // Son ekrana geç (önce sayfa geçişi, sonra veri kaydı)
         nextScreen();
+        
+        // Verileri dosyaya kaydet (asenkron, sayfa ilerlemesini engellemez)
+        setTimeout(() => {
+            saveFormDataToFile();
+        }, 100);
         
         // Final mesajını güncelle
         setTimeout(() => {
@@ -279,22 +281,27 @@ function saveToGoogleSheets(data) {
         return;
     }
     
-    // Google Sheets'e POST isteği gönder
-    fetch(GOOGLE_SHEETS_WEB_APP_URL, {
-        method: 'POST',
-        mode: 'no-cors', // CORS sorununu önlemek için
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-    .then(() => {
-        console.log('Veriler Google Sheets\'e gönderildi!');
-    })
-    .catch(error => {
-        console.error('Google Sheets\'e gönderim hatası:', error);
+    // Google Sheets'e POST isteği gönder (async, hata olsa bile devam et)
+    try {
+        fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+            method: 'POST',
+            mode: 'no-cors', // CORS sorununu önlemek için
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            console.log('Veriler Google Sheets\'e gönderildi!');
+        })
+        .catch(error => {
+            console.error('Google Sheets\'e gönderim hatası:', error);
+            // Hata olsa bile devam et - form gönderimi engellenmemeli
+        });
+    } catch (error) {
+        console.error('Google Sheets gönderim hatası:', error);
         // Hata olsa bile devam et
-    });
+    }
 }
 
 function saveAsJSONFile(data) {
