@@ -16,24 +16,22 @@
             <div class="cactus-game-container">
                 <div class="cactus-center">
                     <div class="cactus-segments-wrapper">
-                        <!-- Kaktüs segmentleri (4 adet) -->
-                        <div class="cactus-segment segment-outer" data-segment="1" data-angle="0" style="--distance: 80px;"></div>
-                        <div class="cactus-segment segment-outer" data-segment="2" data-angle="90" style="--distance: 80px;"></div>
-                        <div class="cactus-segment segment-outer" data-segment="3" data-angle="180" style="--distance: 80px;"></div>
-                        <div class="cactus-segment segment-outer" data-segment="4" data-angle="270" style="--distance: 80px;"></div>
-                        
-                        <!-- Merkez -->
-                        <div class="cactus-segment segment-inner" data-segment="5" data-angle="0" style="--distance: 0px;"></div>
+                        <!-- Sol kol -->
+                        <div class="cactus-segment cactus-arm arm-left" data-segment="1" data-angle="180" style="--distance: 70px;"></div>
+                        <!-- Sağ kol -->
+                        <div class="cactus-segment cactus-arm arm-right" data-segment="2" data-angle="0" style="--distance: 70px;"></div>
+                        <!-- Üst gövde/baş -->
+                        <div class="cactus-segment cactus-head" data-segment="3" data-angle="270" style="--distance: 80px;"></div>
                     </div>
-                    
-                    <!-- Kaktüs merkezi -->
-                    <div class="cactus-core" id="cactus-core"></div>
                 </div>
+                
+                <!-- Ana gövde (tamamlandığında çıkacak) -->
+                <div class="cactus-body" id="cactus-body"></div>
                 
                 <!-- Kaktüs saksısı -->
                 <div class="cactus-pot" id="cactus-pot"></div>
                 
-                <div class="progress-text" id="progress-text">0 / 4 parça</div>
+                <div class="progress-text" id="progress-text">0 / 3 parça</div>
                 <div class="click-hint">Parçalara tıklayarak kaktüsü tamamla!</div>
             </div>
         </div>

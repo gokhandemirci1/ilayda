@@ -1,7 +1,7 @@
 let currentScreen = 0;
 const screens = ['cactus-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
 let petalCount = 0;
-const totalPetals = 4; // 4 segment seçilebilir
+const totalPetals = 3; // 3 parça: sol kol, sağ kol, üst gövde
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,29 +12,29 @@ document.addEventListener('DOMContentLoaded', function() {
         const angle = parseFloat(petal.getAttribute('data-angle') || '0');
         const distance = parseFloat(petal.style.getPropertyValue('--distance').replace('px', '') || '50');
         
-        // Merkez yaprağı (distance 0) atla - tıklanabilir değil
-        if (distance === 0) {
-            // Merkez yaprağı görünür yap ama tıklanabilir değil
-            petal.style.opacity = '1';
-            petal.style.pointerEvents = 'none';
-            petal.style.cursor = 'default';
-            return;
-        }
-        
         // Açıyı radyana çevir
         const angleRad = (angle * Math.PI) / 180;
         
         // X ve Y pozisyonlarını hesapla
         const x = Math.cos(angleRad) * distance;
         const y = Math.sin(angleRad) * distance;
-        const rotation = angle + 45;
+        
+        // Kaktüs parçaları için rotation: kollar yatay (0°), baş dikey (0°)
+        let rotation = 0;
+        if (petal.classList.contains('arm-left')) {
+            rotation = 0; // Sol kol yatay
+        } else if (petal.classList.contains('arm-right')) {
+            rotation = 0; // Sağ kol yatay
+        } else if (petal.classList.contains('cactus-head')) {
+            rotation = 0; // Baş dikey
+        }
         
         // CSS custom properties ile pozisyonu ayarla
         petal.style.setProperty('--x', x + 'px');
         petal.style.setProperty('--y', y + 'px');
         petal.style.setProperty('--rotation', rotation + 'deg');
         
-        // Her yaprağa tıklama eventi ekle
+        // Her parçaya tıklama eventi ekle
         petal.addEventListener('click', function(e) {
             e.stopPropagation();
             
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 petalCount++;
                 updateProgress();
                 
-                // Tüm yapraklar tamamlandıysa
+                // Tüm parçalar tamamlandıysa
                 if (petalCount === totalPetals) {
                     completeRose();
                 }
@@ -160,10 +160,10 @@ function updateProgress() {
 }
 
 function completeRose() {
-    // Kaktüs merkezini göster
-    const core = document.getElementById('cactus-core');
+    // Ana gövdeyi göster (alttan çıkacak)
+    const body = document.getElementById('cactus-body');
     setTimeout(() => {
-        core.classList.add('show');
+        body.classList.add('show');
     }, 300);
     
     // Saksıyı göster
