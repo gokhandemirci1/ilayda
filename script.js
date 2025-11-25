@@ -1,7 +1,7 @@
 let currentScreen = 0;
-const screens = ['rose-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
+const screens = ['daisy-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
 let petalCount = 0;
-const totalPetals = 4; // Sadece 4 dış yaprak seçilebilir
+const totalPetals = 10; // 10 yaprak seçilebilir
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {
@@ -152,7 +152,7 @@ function updateProgress() {
     progressText.textContent = `${petalCount} / ${totalPetals} yaprak`;
     
     if (petalCount === totalPetals) {
-        progressText.textContent = 'Gül tamamlandı! 🌹✨';
+        progressText.textContent = 'Papatya tamamlandı! 🌼✨';
         progressText.style.color = '#d63384';
         progressText.style.fontSize = '1.4em';
         progressText.style.fontWeight = '700';
@@ -160,14 +160,14 @@ function updateProgress() {
 }
 
 function completeRose() {
-    // Gül merkezini göster
-    const core = document.getElementById('rose-core');
+    // Papatya merkezini göster
+    const core = document.getElementById('daisy-core');
     setTimeout(() => {
         core.classList.add('show');
     }, 300);
     
     // Sap ve yaprakları göster
-    const stem = document.getElementById('rose-stem');
+    const stem = document.getElementById('daisy-stem');
     const leafLeft = document.getElementById('leaf-left');
     const leafRight = document.getElementById('leaf-right');
     
