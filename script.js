@@ -1,7 +1,7 @@
 let currentScreen = 0;
 const screens = ['rose-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
 let petalCount = 0;
-const totalPetals = 5;
+const totalPetals = 4; // Sadece 4 dış yaprak seçilebilir
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {
@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
     petals.forEach((petal, index) => {
         const angle = parseFloat(petal.getAttribute('data-angle') || '0');
         const distance = parseFloat(petal.style.getPropertyValue('--distance').replace('px', '') || '50');
+        
+        // Merkez yaprağı (distance 0) atla - tıklanabilir değil
+        if (distance === 0) {
+            // Merkez yaprağı görünür yap ama tıklanabilir değil
+            petal.style.opacity = '1';
+            petal.style.pointerEvents = 'none';
+            petal.style.cursor = 'default';
+            return;
+        }
         
         // Açıyı radyana çevir
         const angleRad = (angle * Math.PI) / 180;
