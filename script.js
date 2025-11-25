@@ -1,7 +1,7 @@
 let currentScreen = 0;
 const screens = ['rose-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
 let petalCount = 0;
-const totalPetals = 8; // 8 dış yaprak seçilebilir
+const totalPetals = 10; // 10 dış yaprak seçilebilir
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {
@@ -130,22 +130,22 @@ function updateProgress() {
     progressText.textContent = `${petalCount} / ${totalPetals} yaprak`;
     
     if (petalCount === totalPetals) {
-        progressText.textContent = 'Kasımpatı tamamlandı! 🌼✨';
-        progressText.style.color = '#ff8c00';
+        progressText.textContent = 'Papatya tamamlandı! 🌸✨';
+        progressText.style.color = '#ffd700';
         progressText.style.fontSize = '1.4em';
         progressText.style.fontWeight = '700';
     }
 }
 
 function completeRose() {
-    // Kasımpatı merkezini göster
-    const core = document.getElementById('chrysanthemum-core');
+    // Papatya merkezini göster
+    const core = document.getElementById('daisy-core');
     setTimeout(() => {
         core.classList.add('show');
     }, 300);
     
     // Sap ve yaprakları göster
-    const stem = document.getElementById('chrysanthemum-stem');
+    const stem = document.getElementById('daisy-stem');
     const leafLeft = document.getElementById('leaf-left');
     const leafRight = document.getElementById('leaf-right');
     
