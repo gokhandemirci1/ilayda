@@ -268,9 +268,8 @@ function saveFormDataToFile() {
         exportDate: new Date().toLocaleString('tr-TR')
     };
     
-    // Hem Google Sheets'e gönder hem de dosya olarak indir
+    // Sadece Google Sheets'e gönder
     saveToGoogleSheets(dataToSave);
-    saveAsJSONFile(dataToSave);
 }
 
 function saveToGoogleSheets(data) {
