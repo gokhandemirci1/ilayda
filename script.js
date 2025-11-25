@@ -1,12 +1,12 @@
 let currentScreen = 0;
-const screens = ['rose-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
+const screens = ['cactus-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
 let petalCount = 0;
-const totalPetals = 4; // Sadece 4 dış yaprak seçilebilir
+const totalPetals = 4; // 4 segment seçilebilir
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {
-    // Gül yapraklarına pozisyon ve açı hesapla
-    const petals = document.querySelectorAll('.petal');
+    // Kaktüs segmentlerine pozisyon ve açı hesapla
+    const petals = document.querySelectorAll('.cactus-segment');
     
     petals.forEach((petal, index) => {
         const angle = parseFloat(petal.getAttribute('data-angle') || '0');
@@ -149,32 +149,28 @@ function continueToDate() {
 
 function updateProgress() {
     const progressText = document.getElementById('progress-text');
-    progressText.textContent = `${petalCount} / ${totalPetals} yaprak`;
+    progressText.textContent = `${petalCount} / ${totalPetals} parça`;
     
     if (petalCount === totalPetals) {
-        progressText.textContent = 'Gül tamamlandı! 🌹✨';
-        progressText.style.color = '#d63384';
+        progressText.textContent = 'Kaktüs tamamlandı! 🌵✨';
+        progressText.style.color = '#228b22';
         progressText.style.fontSize = '1.4em';
         progressText.style.fontWeight = '700';
     }
 }
 
 function completeRose() {
-    // Gül merkezini göster
-    const core = document.getElementById('rose-core');
+    // Kaktüs merkezini göster
+    const core = document.getElementById('cactus-core');
     setTimeout(() => {
         core.classList.add('show');
     }, 300);
     
-    // Sap ve yaprakları göster
-    const stem = document.getElementById('rose-stem');
-    const leafLeft = document.getElementById('leaf-left');
-    const leafRight = document.getElementById('leaf-right');
+    // Saksıyı göster
+    const pot = document.getElementById('cactus-pot');
     
     setTimeout(() => {
-        stem.classList.add('show');
-        leafLeft.classList.add('show');
-        leafRight.classList.add('show');
+        pot.classList.add('show');
     }, 800);
     
     // 2.5 saniye sonra randevu sorusuna geç

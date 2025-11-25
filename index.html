@@ -3,47 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özel Bir Davet 🌹</title>
+    <title>Özel Bir Davet 🌵</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <!-- İlk Ekran - Gül Tamamlama -->
-        <div class="screen active" id="rose-screen">
-            <h1 class="title">Merhaba İlayda Hanım, bu siteyi size tasarladım istediğiniz zaman bu linkten erişebilirsiniz <span class="pink-emoji">🌹</span></h1>
-            <p class="subtitle">Gülü tamamlamak için yapraklara tıkla... Gülü tamamladığında önemli bir sayfa seni bekliyor</p>
+        <!-- İlk Ekran - Kaktüs Tamamlama -->
+        <div class="screen active" id="cactus-screen">
+            <h1 class="title">Merhaba İlayda Hanım, bu siteyi size tasarladım istediğiniz zaman bu linkten erişebilirsiniz <span class="pink-emoji">🌵</span></h1>
+            <p class="subtitle">Kaktüsü tamamlamak için parçalara tıkla... Kaktüsü tamamladığında önemli bir sayfa seni bekliyor</p>
             
-            <div class="rose-game-container">
-                <div class="rose-center">
-                    <div class="rose-petals-wrapper">
-                        <!-- Dış yapraklar (4 adet) -->
-                        <div class="petal petal-outer" data-petal="1" data-angle="0" style="--distance: 80px;"></div>
-                        <div class="petal petal-outer" data-petal="2" data-angle="90" style="--distance: 80px;"></div>
-                        <div class="petal petal-outer" data-petal="3" data-angle="180" style="--distance: 80px;"></div>
-                        <div class="petal petal-outer" data-petal="4" data-angle="270" style="--distance: 80px;"></div>
+            <div class="cactus-game-container">
+                <div class="cactus-center">
+                    <div class="cactus-segments-wrapper">
+                        <!-- Kaktüs segmentleri (4 adet) -->
+                        <div class="cactus-segment segment-outer" data-segment="1" data-angle="0" style="--distance: 80px;"></div>
+                        <div class="cactus-segment segment-outer" data-segment="2" data-angle="90" style="--distance: 80px;"></div>
+                        <div class="cactus-segment segment-outer" data-segment="3" data-angle="180" style="--distance: 80px;"></div>
+                        <div class="cactus-segment segment-outer" data-segment="4" data-angle="270" style="--distance: 80px;"></div>
                         
                         <!-- Merkez -->
-                        <div class="petal petal-inner" data-petal="5" data-angle="0" style="--distance: 0px;"></div>
+                        <div class="cactus-segment segment-inner" data-segment="5" data-angle="0" style="--distance: 0px;"></div>
                     </div>
                     
-                    <!-- Gül merkezi -->
-                    <div class="rose-core" id="rose-core"></div>
+                    <!-- Kaktüs merkezi -->
+                    <div class="cactus-core" id="cactus-core"></div>
                 </div>
                 
-                <!-- Gül sapı -->
-                <div class="rose-stem" id="rose-stem"></div>
-                <div class="rose-leaf leaf-left" id="leaf-left"></div>
-                <div class="rose-leaf leaf-right" id="leaf-right"></div>
+                <!-- Kaktüs saksısı -->
+                <div class="cactus-pot" id="cactus-pot"></div>
                 
-                <div class="progress-text" id="progress-text">0 / 4 yaprak</div>
-                <div class="click-hint">Yapraklara tıklayarak gülü tamamla!</div>
+                <div class="progress-text" id="progress-text">0 / 4 parça</div>
+                <div class="click-hint">Parçalara tıklayarak kaktüsü tamamla!</div>
             </div>
         </div>
 
         <!-- İkinci Ekran - Randevu Sorusu -->
         <div class="screen" id="appointment-question-screen">
             <div class="message-box">
-                <div class="completed-rose"><span class="pink-emoji">🌹</span></div>
+                <div class="completed-cactus"><span class="pink-emoji">🌵</span></div>
                 <h2>Tamamlayabildiğinizee sevindim ya komplike olmamış</h2>
                 <p class="question-text">Size bir buluşma davet ediyorum. Bu buluşmanın içeriğini bir sonraki sayfada belirleyebileceksiniz ve son sayfada seçtiğiniz tarihde yazacağım size ama önce aşağıdan onaylamanız gerekecek.</p>
             </div>
