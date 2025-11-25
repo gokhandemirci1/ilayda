@@ -1,7 +1,7 @@
 let currentScreen = 0;
 const screens = ['rose-screen', 'appointment-question-screen', 'meeting-suggestions-screen', 'date-screen', 'thank-you-screen'];
 let petalCount = 0;
-const totalPetals = 10;
+const totalPetals = 5;
 
 // Sayfa yüklendiğinde
 document.addEventListener('DOMContentLoaded', function() {

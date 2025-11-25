@@ -137,6 +137,16 @@ body {
     touch-action: manipulation;
 }
 
+/* Merkez yaprak (distance 0 olan) */
+.petal-inner[style*="--distance: 0px"] {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-left: -12.5px;
+    margin-top: -12.5px;
+    background: linear-gradient(135deg, #8b008b 0%, #4b0082 100%);
+}
+
 .petal:hover {
     opacity: 0.5 !important;
     transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--rotation, 45deg)) scale(1.1);
