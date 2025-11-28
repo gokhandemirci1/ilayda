@@ -3,14 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesaj</title>
+    <title>Randevu Daveti</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="message-container">
-        <p class="message-text">
-            Sana 1 aydır ilk mesajı atan ben olduğum için artık seni rahatsız etmeye başladığımı düşünmeye başladım. Sınav sürecinde ekstra rahatsızlık verdiğim için de üzgünüm. Bu aptal siteyi de unut kusura bakma. Tekrar yazıp uzatmak istemedim bu notu o yüzden buradan bırakıyorum. 
-        </p>
+    <div class="container">
+        <!-- Ekran 1: Kaktüs Tamamlama Oyunu -->
+        <div class="screen welcome-screen active">
+            <h1>Merhaba İlayda Hanım, bu site sizin için tasarlanmıştır 🌹</h1>
+            <p class="hint-text">Kaktüsü tamamladığında önemli bir sayfa seni bekliyor</p>
+            
+            <div class="cactus-game">
+                <div class="cactus-container">
+                    <!-- Sol kol -->
+                    <div class="cactus-arm left-arm" data-part="left"></div>
+                    <!-- Sağ kol -->
+                    <div class="cactus-arm right-arm" data-part="right"></div>
+                    <!-- Gövde (kollar tamamlanınca görünecek) -->
+                    <div class="cactus-body" data-part="body"></div>
+                </div>
+                <p class="progress-text">Kaktüsü tamamla: <span id="progress">0/3</span></p>
+            </div>
+        </div>
+
+        <!-- Ekran 2: Randevu Sorusu -->
+        <div class="screen question-screen">
+            <h1>Size bir buluşma davet ediyorum</h1>
+            <p class="subtitle">Bu buluşmanın içeriğini bir sonraki sayfada belirleyebileceksiniz ama önce aşağıdan onaylamanız gerekecek<br>Not: Hayır butonu çalışmıyor:)</p>
+            <div class="button-container">
+                <button class="btn btn-yes" onclick="nextScreen()">Evet! Tabii ki!</button>
+                <button class="btn btn-no" id="noBtn">Hayır</button>
+            </div>
+        </div>
+
+        <!-- Ekran 3: Buluşma Önerileri -->
+        <div class="screen suggestions-screen">
+            <h1>Buluşma Önerileri</h1>
+            <p class="subtitle">Birden fazla seçim yapabilirsiniz :)</p>
+            <div class="suggestions-form">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="suggestion" value="1 Aralık Fenerbahçe Galatasaray derbisini izleyelim">
+                    <span>1 Aralık Fenerbahçe Galatasaray derbisini izleyelim</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="suggestion" value="Akşam yemeği yiyelim">
+                    <span>Akşam yemeği yiyelim</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="suggestion" value="Her zamanki mekanda bira içelim">
+                    <span>Her zamanki mekanda bira içelim</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="suggestion" value="Ben önereceğim">
+                    <span>Ben önereceğim</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="suggestion" value="Şaka bir yana gelmek zorunda değilsin">
+                    <span>Şaka bir yana gelmek zorunda değilsin gelmek istemiyorsan bu kutucuğu işaretle bir açıklama yapmak zorunda da değilsin.</span>
+                </label>
+                <textarea id="customSuggestion" placeholder="Kendi önerinizi yazabilirsiniz..." rows="3"></textarea>
+                <button class="btn btn-continue" id="continueBtn" onclick="nextScreen()" disabled>Devam Et</button>
+            </div>
+        </div>
+
+        <!-- Ekran 4: Tarih Seçimi -->
+        <div class="screen date-screen">
+            <h1>Sınavlarının Bitme Tarihini Seç</h1>
+            <p class="subtitle">Sınavlarının bitme tarihini seçer misin? Sana rahatça yazabileyim</p>
+            <div class="date-picker-container">
+                <input type="date" id="datePicker" min="">
+                <button class="btn btn-submit" onclick="submitForm()">Gönder</button>
+            </div>
+        </div>
+
+        <!-- Ekran 5: Teşekkür -->
+        <div class="screen thank-you-screen">
+            <h1 id="thankYouMessage">Tamam <span id="selectedDateText"></span> akşamında size yazacağım</h1>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -14,6 +14,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+    color: #333;
+    text-align: center;
     padding: 20px;
 }
 
@@ -23,16 +27,24 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-.message-container {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    max-width: 600px;
+.container {
+    max-width: 800px;
     width: 100%;
-    text-align: center;
-    animation: fadeIn 0.8s ease-in-out;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.screen.active {
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -46,32 +58,289 @@ body {
     }
 }
 
-.message-text {
+h1 {
+    font-size: 2em;
+    color: #d63384;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hint-text {
+    font-size: 1em;
+    color: #888;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Kaktüs Oyunu */
+.cactus-game {
+    margin: 40px 0;
+}
+
+.cactus-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto 30px;
+}
+
+.cactus-arm {
+    position: absolute;
+    width: 60px;
+    height: 120px;
+    background: #2d5016;
+    border-radius: 30px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border: 3px solid #1a3009;
+}
+
+.cactus-arm:hover {
+    transform: scale(1.1);
+}
+
+.cactus-arm.completed {
+    opacity: 1;
+    cursor: default;
+}
+
+.cactus-arm.left-arm {
+    left: 20px;
+    top: 50px;
+    transform: rotate(-25deg);
+    transform-origin: bottom center;
+}
+
+.cactus-arm.right-arm {
+    right: 20px;
+    top: 50px;
+    transform: rotate(25deg);
+    transform-origin: bottom center;
+}
+
+.cactus-body {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 150px;
+    background: #2d5016;
+    border-radius: 40px;
+    border: 3px solid #1a3009;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.cactus-body.show {
+    opacity: 1;
+}
+
+.progress-text {
     font-size: 1.2em;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Butonlar */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-width: 150px;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-yes:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    position: relative;
+}
+
+.btn-no:hover {
+    animation: flee 0.5s ease;
+}
+
+@keyframes flee {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-50px, -30px) rotate(-10deg); }
+    50% { transform: translate(50px, -30px) rotate(10deg); }
+    75% { transform: translate(-30px, 30px) rotate(-5deg); }
+}
+
+.btn-continue {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-continue:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-continue:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Buluşma Önerileri */
+.suggestions-form {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.checkbox-label {
+    display: block;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.checkbox-label:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #667eea;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    font-size: 1em;
     color: #333;
-    line-height: 1.8;
-    font-weight: 400;
+    vertical-align: middle;
 }
 
-/* Responsive Tasarım - Mobil */
-@media (max-width: 768px) {
-    .message-container {
-        padding: 30px 20px;
-    }
-
-    .message-text {
-        font-size: 1.1em;
-        line-height: 1.7;
-    }
+#customSuggestion {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    resize: vertical;
 }
 
-@media (max-width: 480px) {
-    .message-container {
-        padding: 25px 15px;
+#customSuggestion:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Tarih Seçici */
+.date-picker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#datePicker {
+    padding: 15px;
+    font-size: 1.1em;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+    min-width: 250px;
+}
+
+#datePicker:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
     }
 
-    .message-text {
+    .subtitle {
         font-size: 1em;
-        line-height: 1.6;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .cactus-container {
+        width: 150px;
+        height: 250px;
+    }
+
+    .cactus-arm {
+        width: 45px;
+        height: 90px;
+    }
+
+    .cactus-body {
+        width: 60px;
+        height: 120px;
+    }
+
+    .cactus-arm.left-arm {
+        left: 10px;
+    }
+
+    .cactus-arm.right-arm {
+        right: 10px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
     }
 }

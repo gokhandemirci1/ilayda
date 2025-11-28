@@ -50,3 +50,4 @@ Detaylı kurulum için `GOOGLE_SHEETS_KURULUM.md` dosyasına bakın.
 
 
 
+
