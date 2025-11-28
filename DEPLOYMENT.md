@@ -108,3 +108,5 @@ Deployment sonrası:
 2. Formu doldurun
 3. Google Sheets'inize gidin ve verilerin geldiğini kontrol edin
 
+
+

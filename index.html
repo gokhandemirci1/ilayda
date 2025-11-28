@@ -3,121 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özel Bir Davet 🌵</title>
+    <title>Mesaj</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- İlk Ekran - Kaktüs Tamamlama -->
-        <div class="screen active" id="cactus-screen">
-            <h1 class="title">Merhaba İlayda Hanım, bu siteyi size tasarladım istediğiniz zaman bu linkten erişebilirsiniz <span class="pink-emoji">🌵</span></h1>
-            <p class="subtitle">Kaktüsü tamamlamak için parçalara tıkla... Kaktüsü tamamladığında önemli bir sayfa seni bekliyor</p>
-            
-            <div class="cactus-game-container">
-                <div class="cactus-center">
-                    <div class="cactus-segments-wrapper">
-                        <!-- Sol kol -->
-                        <div class="cactus-segment cactus-arm arm-left" data-segment="1" data-angle="180" style="--distance: 70px;"></div>
-                        <!-- Sağ kol -->
-                        <div class="cactus-segment cactus-arm arm-right" data-segment="2" data-angle="0" style="--distance: 70px;"></div>
-                        <!-- Üst gövde/baş -->
-                        <div class="cactus-segment cactus-head" data-segment="3" data-angle="270" style="--distance: 80px;"></div>
-                    </div>
-                </div>
-                
-                <!-- Ana gövde (tamamlandığında çıkacak) -->
-                <div class="cactus-body" id="cactus-body"></div>
-                
-                <!-- Kaktüs saksısı -->
-                <div class="cactus-pot" id="cactus-pot"></div>
-                
-                <div class="progress-text" id="progress-text">0 / 3 parça</div>
-                <div class="click-hint">Parçalara tıklayarak kaktüsü tamamla!</div>
-            </div>
-        </div>
-
-        <!-- İkinci Ekran - Randevu Sorusu -->
-        <div class="screen" id="appointment-question-screen">
-            <div class="message-box">
-                <div class="completed-cactus"><span class="pink-emoji">🌵</span></div>
-                <h2>Kaktüs isteğiniz emirdir😉</h2>
-                <p class="question-text">Size bir buluşma davet ediyorum. Bu buluşmanın içeriğini bir sonraki sayfada belirleyebileceksiniz ve son sayfada seçtiğiniz tarihde yazacağım size ama önce aşağıdan onaylamanız gerekecek.</p>
-            </div>
-            <div class="button-group">
-                <button class="btn-yes" onclick="answerYes()">Evet, Tabii ki!</button>
-                <button class="btn-no" onclick="answerNo()" onmouseover="moveNoButton()">Hayır </button>
-            </div>
-        </div>
-
-        <!-- Üçüncü Ekran - Buluşma Önerileri -->
-        <div class="screen" id="meeting-suggestions-screen">
-            <div class="suggestions-box">
-                <h2>Buluşma Önerilerim</h2>
-                <p class="suggestions-hint">BİRDEN FAZLA SEÇİM YAPABİLİRSİNİZ</p>
-                
-                <div class="suggestions-list">
-                    <label class="suggestion-item">
-                        <input type="checkbox" class="suggestion-checkbox" value="yemek">
-                        <span class="checkmark"></span>
-                        <span class="suggestion-text">Akşam yemeği yiyelim</span>
-                    </label>
-                    
-                    <label class="suggestion-item">
-                        <input type="checkbox" class="suggestion-checkbox" value="bira">
-                        <span class="checkmark"></span>
-                        <span class="suggestion-text"> Bira içelim </span>
-                    </label>
-                    
-                    <label class="suggestion-item">
-                        <input type="checkbox" class="suggestion-checkbox" value="gelmek-istemiyorum">
-                        <span class="checkmark"></span>
-                        <span class="suggestion-text">Şaka bir yana gelmek zorunda değilsin gelmek istemiyorsan bu kutucuğu işaretle bir açıklama yapmak zorunda da değilsin</span>
-                    </label>
-                    
-                </div>
-                
-                <!-- Ben önereceğim - Metin kutusu -->
-                <div class="custom-suggestion-box">
-                    <label class="custom-suggestion-label">Ben önereceğim</label>
-                    <textarea 
-                        id="custom-suggestion-input" 
-                        class="custom-suggestion-input" 
-                        placeholder="Ne yapmak istersin? Buraya yazabilirsin..."
-                        rows="3"
-                    ></textarea>
-                </div>
-                
-                <button class="btn-primary" id="suggestions-btn" onclick="continueToDate()" disabled>Devam Et</button>
-            </div>
-        </div>
-
-        <!-- Dördüncü Ekran - Tarih Seçimi -->
-        <div class="screen" id="date-screen">
-            <div class="date-selection-box">
-                <h2>Sınavlarının Bitme Tarihini Seç</h2>
-                <p class="date-hint">Sınavlarının bitme tarihini seçer misin? Sana rahatça yazabileyim</p>
-                <div class="date-picker-container">
-                    <input type="date" id="appointment-date" class="date-input" min="">
-                    <div class="selected-date" id="selected-date-display"></div>
-                </div>
-                <button class="btn-primary" id="confirm-btn" onclick="confirmDate()" disabled>Onayla</button>
-            </div>
-        </div>
-
-        <!-- Son Ekran - Teşekkür -->
-        <div class="screen" id="thank-you-screen">
-            <div class="celebration">
-                <div class="confetti">🎉</div>
-                <div class="confetti">✨</div>
-                <div class="confetti">✨</div>
-                <div class="confetti">🌟</div>
-            </div>
-            <h2 id="final-title">Tamam</h2>
-            <p id="final-message">Randevu tarihin kaydedildi!</p>
-        </div>
+    <div class="message-container">
+        <p class="message-text">
+            Sana 1 aydır ilk mesajı atan ben olduğum için artık seni rahatsız etmeye başladığımı düşünmeye başladım. Sınav sürecinde ekstra rahatsızlık verdiğim için de üzgünüm. Bu aptal siteyi de unut kusura bakma
+        </p>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
-

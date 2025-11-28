@@ -73,3 +73,5 @@
 - Web App URL'si herkese açık olacak, bu yüzden sadece form verilerini kabul edecek şekilde tasarlandı
 - İsterseniz Apps Script'e ekstra doğrulama ekleyebilirsiniz (örnek: belirli bir token kontrolü)
 
+
+

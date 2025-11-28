@@ -48,3 +48,5 @@ Detaylı kurulum için `GOOGLE_SHEETS_KURULUM.md` dosyasına bakın.
 
 Özel proje - Tüm hakları saklıdır.
 
+
+
