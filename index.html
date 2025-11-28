@@ -15,11 +15,13 @@
             
             <div class="cactus-game">
                 <div class="cactus-container">
-                    <!-- Sol kol -->
-                    <div class="cactus-arm left-arm" data-part="left"></div>
-                    <!-- Sağ kol -->
-                    <div class="cactus-arm right-arm" data-part="right"></div>
-                    <!-- Gövde (kollar tamamlanınca görünecek) -->
+                    <!-- Sol yaprak -->
+                    <div class="cactus-leaf left-leaf" data-part="left"></div>
+                    <!-- Sağ yaprak -->
+                    <div class="cactus-leaf right-leaf" data-part="right"></div>
+                    <!-- Üst yaprak -->
+                    <div class="cactus-leaf top-leaf" data-part="top"></div>
+                    <!-- Gövde (yapraklar tamamlanınca görünecek) -->
                     <div class="cactus-body" data-part="body"></div>
                 </div>
                 <p class="progress-text">Kaktüsü tamamla: <span id="progress">0/3</span></p>
@@ -29,6 +31,7 @@
         <!-- Ekran 2: Randevu Sorusu -->
         <div class="screen question-screen">
             <h1>Size bir buluşma davet ediyorum</h1>
+            <p class="cactus-message">🌵 kaktüs isteğiniz bir emirdir</p>
             <p class="subtitle">Bu buluşmanın içeriğini bir sonraki sayfada belirleyebileceksiniz ama önce aşağıdan onaylamanız gerekecek<br>Not: Hayır butonu çalışmıyor:)</p>
             <div class="button-container">
                 <button class="btn btn-yes" onclick="nextScreen()">Evet! Tabii ki!</button>

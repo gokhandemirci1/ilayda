@@ -79,6 +79,13 @@ h1 {
     font-style: italic;
 }
 
+.cactus-message {
+    font-size: 1.5em;
+    color: #2d5016;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
 /* Kaktüs Oyunu */
 .cactus-game {
     margin: 40px 0;
@@ -91,38 +98,45 @@ h1 {
     margin: 0 auto 30px;
 }
 
-.cactus-arm {
+.cactus-leaf {
     position: absolute;
-    width: 60px;
-    height: 120px;
+    width: 50px;
+    height: 80px;
     background: #2d5016;
-    border-radius: 30px;
+    border-radius: 25px;
     cursor: pointer;
     opacity: 0.3;
     transition: opacity 0.3s ease, transform 0.3s ease;
     border: 3px solid #1a3009;
 }
 
-.cactus-arm:hover {
+.cactus-leaf:hover {
     transform: scale(1.1);
 }
 
-.cactus-arm.completed {
+.cactus-leaf.completed {
     opacity: 1;
     cursor: default;
 }
 
-.cactus-arm.left-arm {
-    left: 20px;
-    top: 50px;
-    transform: rotate(-25deg);
+.cactus-leaf.left-leaf {
+    left: 30px;
+    top: 60px;
+    transform: rotate(-30deg);
     transform-origin: bottom center;
 }
 
-.cactus-arm.right-arm {
-    right: 20px;
-    top: 50px;
-    transform: rotate(25deg);
+.cactus-leaf.right-leaf {
+    right: 30px;
+    top: 60px;
+    transform: rotate(30deg);
+    transform-origin: bottom center;
+}
+
+.cactus-leaf.top-leaf {
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%) rotate(0deg);
     transform-origin: bottom center;
 }
 
@@ -318,9 +332,9 @@ h1 {
         height: 250px;
     }
 
-    .cactus-arm {
-        width: 45px;
-        height: 90px;
+    .cactus-leaf {
+        width: 40px;
+        height: 60px;
     }
 
     .cactus-body {
@@ -328,12 +342,16 @@ h1 {
         height: 120px;
     }
 
-    .cactus-arm.left-arm {
-        left: 10px;
+    .cactus-leaf.left-leaf {
+        left: 20px;
     }
 
-    .cactus-arm.right-arm {
-        right: 10px;
+    .cactus-leaf.right-leaf {
+        right: 20px;
+    }
+
+    .cactus-message {
+        font-size: 1.2em;
     }
 
     .button-container {

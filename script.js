@@ -1,13 +1,14 @@
 // Kaktüs tamamlama oyunu
 let completedParts = 0;
-const totalParts = 3; // 2 kol + 1 gövde
+const totalParts = 3; // 3 yaprak
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Kaktüs kollarına tıklama olayları
-    const leftArm = document.querySelector('.cactus-arm.left-arm');
-    const rightArm = document.querySelector('.cactus-arm.right-arm');
+    // Kaktüs yapraklarına tıklama olayları
+    const leftLeaf = document.querySelector('.cactus-leaf.left-leaf');
+    const rightLeaf = document.querySelector('.cactus-leaf.right-leaf');
+    const topLeaf = document.querySelector('.cactus-leaf.top-leaf');
     
-    leftArm.addEventListener('click', function() {
+    leftLeaf.addEventListener('click', function() {
         if (!this.classList.contains('completed')) {
             this.classList.add('completed');
             completedParts++;
@@ -16,7 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    rightArm.addEventListener('click', function() {
+    rightLeaf.addEventListener('click', function() {
+        if (!this.classList.contains('completed')) {
+            this.classList.add('completed');
+            completedParts++;
+            updateProgress();
+            checkCactusComplete();
+        }
+    });
+    
+    topLeaf.addEventListener('click', function() {
         if (!this.classList.contains('completed')) {
             this.classList.add('completed');
             completedParts++;
@@ -62,12 +72,10 @@ function updateProgress() {
 }
 
 function checkCactusComplete() {
-    if (completedParts === 2) {
-        // Kollar tamamlandı, gövdeyi göster
+    if (completedParts === 3) {
+        // Yapraklar tamamlandı, gövdeyi göster
         const body = document.querySelector('.cactus-body');
         body.classList.add('show');
-        completedParts++;
-        updateProgress();
         
         // 1 saniye sonra bir sonraki ekrana geç
         setTimeout(() => {
