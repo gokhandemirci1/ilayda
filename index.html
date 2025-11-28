@@ -10,19 +10,43 @@
     <div class="container">
         <!-- Ekran 1: Kaktüs Tamamlama Oyunu -->
         <div class="screen welcome-screen active">
-            <h1>Merhaba İlayda Hanım, bu site sizin için tasarlanmıştır 🌹</h1>
+            <h1>Merhaba İlayda Hanım, bu site sizin için tasarlanmıştır 🌵</h1>
             <p class="hint-text">Kaktüsü tamamladığında önemli bir sayfa seni bekliyor</p>
             
             <div class="cactus-game">
                 <div class="cactus-container">
                     <!-- Sol yaprak -->
-                    <div class="cactus-leaf left-leaf" data-part="left"></div>
+                    <div class="cactus-leaf left-leaf" data-part="left">
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                    </div>
                     <!-- Sağ yaprak -->
-                    <div class="cactus-leaf right-leaf" data-part="right"></div>
+                    <div class="cactus-leaf right-leaf" data-part="right">
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                    </div>
                     <!-- Üst yaprak -->
-                    <div class="cactus-leaf top-leaf" data-part="top"></div>
+                    <div class="cactus-leaf top-leaf" data-part="top">
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                    </div>
                     <!-- Gövde (yapraklar tamamlanınca görünecek) -->
-                    <div class="cactus-body" data-part="body"></div>
+                    <div class="cactus-body" data-part="body">
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                        <div class="cactus-detail"></div>
+                    </div>
+                    <!-- Çiçek (gövde görününce çıkacak) -->
+                    <div class="cactus-flower">
+                        <div class="flower-petal"></div>
+                        <div class="flower-petal"></div>
+                        <div class="flower-petal"></div>
+                        <div class="flower-petal"></div>
+                        <div class="flower-center"></div>
+                    </div>
                 </div>
                 <p class="progress-text">Kaktüsü tamamla: <span id="progress">0/3</span></p>
             </div>
